@@ -1,0 +1,21 @@
+@{
+	ViewData["Title"] = "Create an account";
+	Layout = "_AuthLayout";
+}
+<section class="auth-page">
+	<div class="auth-card auth-card-wide">
+		<a class="brand-lockup auth-brand" asp-controller="Home" asp-action="Index"><span class="brand-mark">A</span><span>ARMS<span class="brand-accent">GUARD</span><small>INFORMATION &amp; LICENSING</small></span></a>
+		<p class="eyebrow mt-4">JOIN THE COMMUNITY</p><h1>Create your account</h1>
+		<p class="muted-copy">This sample form demonstrates validation only. No account is created or stored.</p>
+		<form id="signupForm" novalidate>
+			<div class="mb-3"><label class="form-label" for="fullName">Full name</label><input class="form-control" id="fullName" required minlength="2" autocomplete="name" /></div>
+			<div class="row"><div class="col-md-6 mb-3"><label class="form-label" for="signupEmail">Email</label><input class="form-control" id="signupEmail" type="email" required autocomplete="email" /></div><div class="col-md-6 mb-3"><label class="form-label" for="phoneNumber">Phone number</label><input class="form-control" id="phoneNumber" type="tel" required autocomplete="tel" /></div></div>
+			<div class="row"><div class="col-md-6 mb-3"><label class="form-label" for="signupPassword">Password</label><div class="input-group"><input class="form-control" id="signupPassword" type="password" minlength="8" required autocomplete="new-password" /><button class="btn btn-outline-secondary" type="button" data-password-toggle="signupPassword">Show</button></div></div><div class="col-md-6 mb-3"><label class="form-label" for="confirmPassword">Confirm password</label><input class="form-control" id="confirmPassword" type="password" required autocomplete="new-password" /></div></div>
+			<div class="form-check mb-3"><input class="form-check-input" id="termsAccepted" type="checkbox" required /><label class="form-check-label" for="termsAccepted">I agree to the demonstration terms and understand this form does not create an account.</label></div>
+			<div class="form-feedback" id="signupFeedback" role="status" aria-live="polite"></div>
+			<button class="btn btn-navy w-100" type="submit">Create account</button>
+		</form>
+		<p class="auth-switch">Already registered? <a asp-controller="Account" asp-action="Login">Sign in</a></p>
+	</div>
+</section>
+@section Scripts { <script src="~/js/auth.js" asp-append-version="true"></script> }

@@ -1,0 +1,25 @@
+@{
+	ViewData["Title"] = "Administrator login";
+	ViewData["AuthHeading"] = "Welcome back";
+	ViewData["AuthIntro"] = "Sign in to the ArmsGuard demonstration console.";
+	Layout = "_AuthLayout";
+}
+<section class="auth-page">
+	<div class="auth-card">
+		<a class="brand-lockup auth-brand" asp-controller="Home" asp-action="Index"><span class="brand-mark">A</span><span>ARMS<span class="brand-accent">GUARD</span><small>INFORMATION &amp; LICENSING</small></span></a>
+		<p class="eyebrow mt-4">ADMINISTRATOR DEMO</p>
+		<h1>@ViewData["AuthHeading"]</h1>
+		<p class="muted-copy">@ViewData["AuthIntro"]</p>
+		<div class="demo-credentials"><strong>Demo credentials</strong><span>Email: admin@armsguard.local</span><span>Password: GuardDemo!26</span><small>These temporary credentials are for this frontend simulation only.</small></div>
+		<form id="loginForm" novalidate>
+			<div class="mb-3"><label class="form-label" for="loginEmail">Email or username</label><input class="form-control" id="loginEmail" name="email" autocomplete="username" required /></div>
+			<div class="mb-3"><label class="form-label" for="loginPassword">Password</label><div class="input-group"><input class="form-control" id="loginPassword" type="password" autocomplete="current-password" required /><button class="btn btn-outline-secondary" type="button" data-password-toggle="loginPassword">Show</button></div></div>
+			<div class="d-flex justify-content-between align-items-center mb-4"><label class="form-check-label"><input class="form-check-input me-2" type="checkbox" id="rememberMe" />Remember me</label><a href="#forgot-password" data-demo-link="Password recovery is not available in this frontend demonstration.">Forgot password?</a></div>
+			<div class="form-feedback" id="loginFeedback" role="status" aria-live="polite"></div>
+			<button class="btn btn-navy w-100" type="submit">Sign in</button>
+		</form>
+		<p class="auth-switch">New to ArmsGuard? <a asp-controller="Account" asp-action="Signup">Create an account</a></p>
+		<p class="auth-legal">The administrator check is a client-side simulation and is not production authentication or authorization.</p>
+	</div>
+</section>
+@section Scripts { <script src="~/js/auth.js" asp-append-version="true"></script> }
